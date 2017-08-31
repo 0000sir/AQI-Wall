@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>AQI</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="aqi">
+      <div class="quality"></div>
+      <div class="value"></div>
+      <div class="time"></div>
+    </div>
+
+    <script>
+    $(function(){
+      function read_aqi(city){
+        $.get('/api/querys/only_aqi.json?token=5j1znBVAsnSf5xQyNQyq&city='+ city, function(data){
+          avg_aqi = data[data.length-1];
+          console.log(avg_aqi);
+          $("#aqi .quality").text(avg_aqi.quality);
+          $("#aqi .value").text(avg_aqi.aqi);
+          $("#aqi .time").text(avg_aqi.time_point);
+        });
+      }
+
+      read_aqi('beijing');
+    });
+    </script>
+  </body>
+</html>
