@@ -6,4 +6,4 @@ services:
       - ./conf.d:/etc/nginx/conf.d:ro
       - ./html:/usr/share/nginx/html:ro
     ports:
-      - 80:80
+      - 8008:80

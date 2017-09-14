@@ -17,4 +17,4 @@ body{margin: 0;padding: 40px 80; color: #ffe;font-size:50px;}
 
 #weather{width:50%;float:left;}
 #aqi{width:50%;float:left;}
-#date{text-align: right;margin-bottom:1em;}
+#date{text-align: right;margin-bottom:0.5em;}

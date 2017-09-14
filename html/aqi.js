@@ -12,21 +12,20 @@ AQI standers
 function read_aqi(city){
   $.get('/api/querys/only_aqi.json?token=5j1znBVAsnSf5xQyNQyq&city='+ city, function(data){
     avg_aqi = data[data.length-1];
-    console.log(avg_aqi);
     $("#aqi .quality").text(avg_aqi.quality);
     $("#aqi .value").text(avg_aqi.aqi);
     $("#aqi .time").text(avg_aqi.time_point);
 
     if(avg_aqi.aqi<51){
-      $('body').attr("className", "aqi_good");
+      $('body').attr("class", "aqi_good");
     }else if(avg_aqi.aqi < 101){
-      $('body').attr("className", "aqi_normal");
+      $('body').attr("class", "aqi_normal");
     }else if(avg_aqi.aqi < 151){
-      $('body').attr("className", "aqi_bad");
+      $('body').attr("class", "aqi_bad");
     }else if(avg_aqi.aqi < 201){
-      $('body').attr("className", "aqi_harm");
+      $('body').attr("class", "aqi_harm");
     }else{
-      $('body').attr("className", "aqi_hell");
+      $('body').attr("class", "aqi_hell");
     }
   });
 
