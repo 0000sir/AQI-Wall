@@ -18,3 +18,5 @@ body{margin: 0;padding: 40px 80; color: #ffe;font-size:50px;}
 #weather{width:50%;float:left;}
 #aqi{width:50%;float:left;}
 #date{text-align: right;margin-bottom:0.5em;}
+ul#future{clear:both;width:100%;margin: 0em;padding:0;}
+#future li{float:left;list-style: none;font-size:0.5em;margin:1em}

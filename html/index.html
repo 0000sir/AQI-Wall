@@ -26,6 +26,10 @@
       <div class="time"></div>
     </div>
 
+    <ul id="future">
+
+    </ul>
+
     <script>
 
     $(function(){
@@ -33,11 +37,15 @@
         read_aqi('beijing');
 
         read_weather('beijing');
+
+        weather_report('beijing');
       }
 
       readdata();
-
+      clock();
+      setInterval(clock, 1000);
       setInterval(readdata, 60000*10);
+
     });
     </script>
   </body>
