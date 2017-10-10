@@ -15,7 +15,7 @@ function read_aqi(city){
 
     $("#aqi .quality").text(avg_aqi.quality);
     $("#aqi .value").text(avg_aqi.aqi);
-    $("#aqi .time").text("更新时间 "+avg_aqi.time_point.substring(11,19));
+    $("#aqi .time").text(avg_aqi.time_point.substring(11,19) + " 更新");
 
     if(avg_aqi.aqi<51){
       $('body').attr("class", "aqi_good");
@@ -80,6 +80,6 @@ function clock(){
   }
   else{return j;}
   }
-  time=y+'-'+m+'-'+d+'日 '+'星期'+r+' '+fa(h)+':'+fa(f);
+  time=y+'-'+m+'-'+d+' '+fa(h)+':'+fa(f);
   $('#date').text(time);
 }
