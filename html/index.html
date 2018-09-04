@@ -19,8 +19,7 @@
       <div class="weather"></div>
       <div class="wind"></div>
       <div class="temperature big-text"></div>
-      <div class="temperature_scope"></div>
-      <div class="weather_scope"></div>
+      <div class="humidity"></div>
     </div>
 
     <div id="aqi">
@@ -39,9 +38,7 @@
       function readdata(){
         read_aqi('beijing');
 
-        read_weather('beijing');
-
-        weather_report('beijing');
+        read_weather('daxing,beijing');
       }
 
       readdata();

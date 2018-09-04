@@ -34,30 +34,26 @@ function read_aqi(city){
 
 function read_weather(city){
   var weather;
-  $.get('/weather/?app=weather.today&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json&weaid='+city, function(data){
-    weather = data.result;
-    $('.weather').append( "<img src="+ weather.weather_icon +">" );
-    $('.weather').text(weather.weather_curr);
-    $('.wind').text( weather.wind + weather.winp );
-    $('.temperature').text(weather.temperature_curr);
-    $('.weather_scope').text(weather.weather);
-    $('.temperature_scope').text(weather.temperature);
+  $.get('/weather?key=a2cefdbe177a4dfd961eb841b66d667c&location='+city, function(data){
+    weather = data.HeWeather6[0];
+    console.log(weather);
+    $('.weather').text(weather.now.cond_txt);
+    $('.wind').text( weather.now.wind_dir + weather.now.wind_sc + '级' );
+    $('.temperature').text(weather.now.tmp+'℃');
+    $('.humidity').text("相对湿度"+weather.now.hum+"%");
+    
+    forcast = weather.daily_forecast;
+    $('#future').text('');
+    for(var day=0; day<forcast.length;day++){
+      cast = forcast[day];
+      $('#future').append("<li><div class=\"date\">"+cast.date+
+        "</div><div class=\"temperature\">"+cast.tmp_min+'-'+cast.tmp_max+
+        "</div><div class=\"weather\">"+cast.cond_txt_d+'-'+cast.cond_txt_n+
+        "</div><div class=\"windp\">"+cast.wind_dir+cast.wind_sc+"</div></li>");
+    }
 
   });
   return weather;
-}
-
-function weather_report(city){
-  $.get('/weather/?app=weather.future&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json&weaid='+city, function(data){
-    $('#future').text('');
-    for(var day=1; day<data.result.length;day++){
-      weather = data.result[day];
-      $('#future').append("<li><div class=\"date\">"+weather.week+
-        "</div><div class=\"temperature\">"+weather.temperature+
-        "</div><div class=\"weather\">"+weather.weather+
-        "</div><div class=\"windp\">"+weather.winp+"</div></li>");
-    }
-  });
 }
 
 function clock(){
