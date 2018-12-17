@@ -10,24 +10,36 @@ AQI standers
 */
 
 function read_aqi(city){
-  $.get('/api/querys/only_aqi.json?token=5j1znBVAsnSf5xQyNQyq&city='+ city, function(data){
-    avg_aqi = data[data.length-1];
+  $.get('/aqi/'+ city+'/?token=01e7a36f4fc582977c68e8fde4429880f40fc98e', function(data){
+    avg_aqi = 0;
+    avg_aqi = data['data']['aqi'];
+    console.log(avg_aqi);
 
-    $("#aqi .quality").text(avg_aqi.quality);
-    $("#aqi .value").text(avg_aqi.aqi);
-    $("#aqi .time").text(avg_aqi.time_point.substring(11,19) + " 更新");
-
-    if(avg_aqi.aqi<51){
+    $("#aqi .value").text(avg_aqi);
+    $("#aqi .time").text(data['data']['time']['s'].substring(11,19) + " 更新");
+    city = data['data']['city']['name'];
+    city_name_start = city.indexOf('\(');
+    $("#aqi .location").text(city.substring(city_name_start+1, city.length-1));
+    if(avg_aqi<51){
       $('body').attr("class", "aqi_good");
-    }else if(avg_aqi.aqi < 101){
+      $("#aqi .quality").text("优");
+    }else if(avg_aqi < 101){
       $('body').attr("class", "aqi_normal");
-    }else if(avg_aqi.aqi < 151){
+      $("#aqi .quality").text("良");
+    }else if(avg_aqi < 151){
       $('body').attr("class", "aqi_bad");
-    }else if(avg_aqi.aqi < 201){
+      $("#aqi .quality").text("轻度污染");
+    }else if(avg_aqi < 201){
       $('body').attr("class", "aqi_harm");
+      $("#aqi .quality").text("中度污染");
+    }else if(avg_aqi < 301){
+      $('body').attr("class", "aqi_harm");
+      $("#aqi .quality").text("重度污染");
     }else{
       $('body').attr("class", "aqi_hell");
+      $("#aqi .quality").text("有毒");
     }
+    
   });
 
 }

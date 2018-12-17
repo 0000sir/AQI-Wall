@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="128x128" href="/apple-touch-icon.png" />
     <link href="style.css" rel="stylesheet" type="text/css"/>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="aqi.js"></script>
+    <script src="/api.js"></script>
 
   </head>
   <body class="aqi_good">
@@ -26,6 +26,7 @@
       <div class="quality big-text"></div>
       <div class="value"></div>
       <div class="time"></div>
+      <div class="location"></div>
     </div>
 
     <ul id="future">
@@ -36,7 +37,7 @@
 
     $(function(){
       function readdata(){
-        read_aqi('beijing');
+        read_aqi('daxing');
 
         read_weather('daxing,beijing');
       }
