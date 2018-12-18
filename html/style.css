@@ -15,7 +15,11 @@ body{margin: 0;padding: 40px 80; color: #ffe;font-size:50px;}
 
 .big-text{font-size:100px;}
 
+.extra{opacity: 0.7;}
+
 .location{font-size: 40px;}
+
+.source{font-size: 32px;}
 
 #weather{width:50%;float:left;}
 #aqi{width:50%;float:left;}
