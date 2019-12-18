@@ -1,6 +1,6 @@
 html{margin: 0;padding:0}
 
-body{margin: 0;padding: 40px 80; color: #ffe;font-size:50px;}
+body{margin: 0;padding: 40px 40px 0 60px; color: #ffe;font-size:50px;}
 
 .aqi_good{background: #9c6;}
 
@@ -24,7 +24,9 @@ body{margin: 0;padding: 40px 80; color: #ffe;font-size:50px;}
 #weather{width:50%;float:left;}
 #aqi{width:50%;float:left;}
 #date{text-align: right;margin-bottom:0.5em;}
-ul#future{clear:both;width:100%;margin: 0em;padding:0;}
+#forecast{width:50%;margin: 0em;padding:0;height:auto;}
+ul#future{margin:0;padding:0;height:auto;}
 #future li{float:left;list-style: none;font-size:0.5em;margin:1em 1.5em 0 0}
 
-#shici{margin: 2.8em 0 0 0em;font-size:0.5em;float:left;}
+#shici{margin: 1em 0 0 0em;padding-left:0em;font-size:0.5em;float:left;width:48%;}
+#shici_author{text-align:right;margin-top:0.5em;}

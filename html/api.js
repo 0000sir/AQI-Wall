@@ -83,9 +83,11 @@ function show_aqi(aqi, updated_at, city){
 function load_shici(){
   jinrishici.load(function(result) {
     // 自己的处理逻辑
-    console.log(result)
-    var sentence = document.querySelector("#shici");
+    console.log(result);
+    var sentence = document.querySelector("#shici_sentence");
     sentence.innerHTML = result.data.content;
+    var author = document.querySelector("#shici_author");
+    author.innerHTML = result.data.origin.dynasty + " · " + result.data.origin.author;
   });
 }
 
