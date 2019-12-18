@@ -80,6 +80,15 @@ function show_aqi(aqi, updated_at, city){
   $("#aqi .source").text(source);
 }
 
+function load_shici(){
+  jinrishici.load(function(result) {
+    // 自己的处理逻辑
+    console.log(result)
+    var sentence = document.querySelector("#shici");
+    sentence.innerHTML = result.data.content;
+  });
+}
+
 function clock(){
   var x=new Date();
   y=x.getFullYear();

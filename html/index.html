@@ -31,8 +31,10 @@
     </div>
 
     <ul id="future" class="extra">
-
     </ul>
+
+<div id="shici"></div>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
 
     <script>
 
@@ -41,6 +43,8 @@
         read_aqi('daxing');
 
         read_weather('daxing,beijing');
+        
+        load_shici();
       }
 
       readdata();
