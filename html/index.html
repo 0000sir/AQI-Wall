@@ -10,7 +10,7 @@
     <script src="/api.js"></script>
 
   </head>
-  <body>
+  <body class="aqi_normal">
 
     <div id="date"></div>
 
@@ -46,16 +46,13 @@
     $(function(){
       function readdata(){
         read_aqi('daxing');
-
         read_weather('daxing,beijing');
-        
         load_shici();
       }
-
       readdata();
       clock();
       setInterval(clock, 1000);
-      setInterval(readdata, 60000*10);
+      setInterval(readdata, 60000*15);
     });
     </script>
   </body>

@@ -22,7 +22,7 @@ function read_aqi(city){
 
     source = data['data']['attributions'][0]['name'];
     source = source.substring(source.indexOf('\(')+1, source.length-1);
-    set_bg(aqi_color(avg_aqi));
+    //set_bg(aqi_color(avg_aqi));
     show_aqi(avg_aqi, updated_at, city_name, source);
   });
 }
@@ -68,6 +68,7 @@ function show_aqi(aqi, updated_at, city){
   }else{
     $("#aqi .quality").text("有毒");
   }
+  set_bg(aqi_color(avg_aqi));
 
   $("#aqi .time").text(updated_at + " 更新");
   $("#aqi .location").text(city);
@@ -77,7 +78,6 @@ function show_aqi(aqi, updated_at, city){
 function load_shici(){
   jinrishici.load(function(result) {
     // 自己的处理逻辑
-    console.log(result);
     var sentence = document.querySelector("#shici_sentence");
     sentence.innerHTML = result.data.content;
     var author = document.querySelector("#shici_author");
@@ -126,7 +126,7 @@ function aqi_color(aqi){
     r = (0.99**(aqi-250))*250
     b = (0.995**(aqi-250))*250
   }
-  return [r,g,b];
+  return [Math.round(r),Math.round(g),Math.round(b)];
 }
 
 function set_bg(arr_r_g_b){
