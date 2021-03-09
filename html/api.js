@@ -119,12 +119,12 @@ function aqi_color(aqi){
   }
   
   g = Math.pow(0.99,aqi)*255;
-  if(aqi<=250){
+  if(aqi<=200){
     r = Math.pow(aqi,0.25)*50;
     b = 0;
   }else{
-    r = Math.pow(0.99,(aqi-250))*250;
-    b = Math.pow(0.995,(aqi-250))*250;
+    r = Math.pow(0.99,(aqi-200))*200;
+    b = Math.pow(0.995,(aqi-200))*200;
   }
   return [Math.round(r),Math.round(g),Math.round(b)];
 }
