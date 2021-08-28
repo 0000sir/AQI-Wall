@@ -29,25 +29,29 @@ function read_aqi(city){
 
 function read_weather(city){
   var weather;
-  $.get('/weather?key=a2cefdbe177a4dfd961eb841b66d667c&location='+city, function(data){
-    weather = data.HeWeather6[0];
-    $('.weather').text(weather.now.cond_txt);
-    $('.wind').text( weather.now.wind_dir + weather.now.wind_sc + '级' );
-    $('.temperature').text(weather.now.tmp+'℃');
-    $('.humidity').text("相对湿度"+weather.now.hum+"%");
+  $.get('/weather/now?key=a2cefdbe177a4dfd961eb841b66d667c&location='+city, function(data){
+    weather = data.now;
+    $('.weather').text(weather.text);
+    $('.wind').text( weather.windDir + weather.windScale+ '级' );
+    $('.temperature').text(weather.temp+'℃');
+    $('.humidity').text("相对湿度"+weather.humidity+"%");
+  });
+  return weather;
+}
 
-    forcast = weather.daily_forecast;
+function read_forcast(city){
+  var forcast;
+  $.get('/weather/3d?key=a2cefdbe177a4dfd961eb841b66d667c&location='+city, function(data){
+    forcast = data.daily;
     $('#future').text('');
     for(var day=0; day<forcast.length;day++){
       cast = forcast[day];
-      $('#future').append("<li><div class=\"date\">"+cast.date+
-        "</div><div class=\"temperature\">"+cast.tmp_min+'~'+cast.tmp_max+"℃"+
-        "</div><div class=\"weather\">"+cast.cond_txt_d+'-'+cast.cond_txt_n+
-        "</div><div class=\"windp\">"+cast.wind_dir+cast.wind_sc+"</div></li>");
+      $('#future').append("<li><div class=\"date\">"+cast.fxDate+
+        "</div><div class=\"temperature\">"+cast.tempMin+'~'+cast.tempMax+"℃"+
+        "</div><div class=\"weather\">"+cast.textDay+'-'+cast.textNight+
+        "</div><div class=\"windp\">"+cast.windDirDay+cast.windScaleDay+"</div></li>");
     }
-
-  });
-  return weather;
+  })
 }
 
 function show_aqi(aqi, updated_at, city){
