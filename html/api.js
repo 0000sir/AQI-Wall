@@ -89,6 +89,16 @@ function load_shici(){
   });
 }
 
+function fa (j) {
+  if(j<10){
+    return '0'+j;
+  }
+  else{
+    return j;
+  }
+}
+
+
 function clock(){
   var x=new Date();
   y=x.getFullYear();
@@ -99,17 +109,8 @@ function clock(){
   f=x.getMinutes();
   s=x.getSeconds();
   ar=['日','一','二','三','四','五','六'];
-  var j;
-  for(var i=0;i<ar.length;i++){
-  	r=ar[i];
-  }
-  function fa (j) {
-  if(j<10){
-  	return '0'+j;
-  }
-  else{return j;}
-  }
-  time=y+'-'+m+'-'+d+' '+fa(h)+':'+fa(f);
+  w=ar[r];
+  time=y+'-'+m+'-'+d+ '   周' + w + '   '+fa(h)+':'+fa(f);
   $('#date').text(time);
 }
 
