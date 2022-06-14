@@ -17,16 +17,30 @@ body{margin: 0;padding: 40px 40px 0 60px; color: #ffe;font-size:50px;}
 
 .extra{opacity: 0.7;}
 
+.center{text-align: center;}
+
 .location{font-size: 40px;}
 
 .source{font-size: 32px;}
 
-#weather{width:50%;float:left;}
-#aqi{width:50%;float:left;}
 #date{text-align: right;margin-bottom:0.5em;}
-#forecast{width:50%;margin: 0em;padding:0;height:auto;}
-ul#future{margin:0;padding:0;height:auto;}
-#future li{float:left;list-style: none;font-size:0.5em;margin:1em 1.5em 0 0}
+.forecast{margin: 0em;padding:0;height:auto; font-size: 24px;}
 
-#shici{margin: 1em 0 0 0em;padding-left:0em;font-size:0.5em;float:left;width:48%;}
+
+#shici{margin: 0;padding-left:0em;font-size:0.5em;float:left;}
 #shici_author{text-align:right;margin-top:0.5em;}
+
+#shici #full_content {
+  text-align: left;
+  color: #fff;
+  font-size: 1.5em;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: #333;
+  padding: 2em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}

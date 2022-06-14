@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>AQI</title>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="user-scalable=no, width=1024" />
+    <link rel="apple-touch-icon" sizes="128x128" href="/apple-touch-icon.png" />
+    <link href="bulma.min.css" rel="stylesheet" type="text/css"/>
+    <link href="kindle.css" rel="stylesheet" type="text/css"/>
+    <script src="/jquery-3.6.0.min.js"></script>
+    <script src="/api.js"></script>
+
+  </head>
+  <body>
+
+    <div id="date"></div>
+
+    <div id="shici">
+      <div id="shici_sentence">我与使君皆白首，休夸少年风流。</div>
+      <div id="shici_author">宋代 · 苏轼《临江仙·惠州改前韵》</div>
+
+      <div id="full_content">
+        <p class="center big-text">《临江仙·惠州改前韵》</p><p class="center">宋代 · 苏轼</p><p><br>九十日春都过了，贪忙何处追游。三分春色一分愁。雨翻榆荚阵，风转柳花球。我与使君皆白首，休夸少年风流。佳人斜倚合江楼，水光都眼净，山色总眉愁。</p>
+      </div>
+    </div>
+
+    <div id="weather">
+      <div class="temperature big-text"></div>
+      <div class="desc">
+        <div><span class="weather"></span> <span class="wind"></span></div>
+        <div class="humidity extra"></div>
+      </div>
+    </div>
+
+    <div id="aqi">
+      <div class="quality big-text">良</div>
+      <div><span class="value">68</span> <span class="location">北京市大兴区</span></div>
+      <div class="time extra">10:00:00更新</div>
+    </div>
+
+	  <div class="forecast">
+	  <div id="future" class="columns">
+    </div>
+    </div>
+
+
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+    <script>
+
+    $(function(){
+      $("#shici_sentence").click(function(){
+        $("#full_content").show();
+      });
+      $("#full_content").click(function(){
+        $("#full_content").hide();
+      });
+
+      clock();
+      setInterval(clock, 1000);
+
+      function readdata(){
+        load_shici();
+        read_weather('101011100');
+        read_forcast('101011100');
+        read_aqi('daxing');
+      }
+      
+      readdata();
+      setInterval(readdata, 60000*15);
+    });
+
+    </script>
+  </body>
+</html>

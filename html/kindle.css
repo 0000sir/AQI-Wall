@@ -1,0 +1,59 @@
+body{
+  padding: 0 2em;
+  margin: 0;
+  font-size: 20px;
+}
+
+.big-text{
+  font-size: 60px;
+}
+
+.center {
+  text-align: center;
+}
+
+#date{
+  position: absolute;
+  right: 2em;
+  top: 1em;
+}
+
+#shici{
+  text-align: center;
+  margin-top: 6em;
+  margin-bottom: 4em;
+}
+
+#shici #shici_sentence{
+  font-size: 2em;
+}
+
+#shici #full_content {
+  text-align: left;
+  color: #fff;
+  font-size: 1.5em;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: #333;
+  padding: 2em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+#weather, #aqi{
+  margin-left: 4em;
+  margin-bottom: 2em;
+}
+
+#weather .weather, #weather .humidity, #aqi .value, #aqi .time{line-height: 2em;}
+
+#aqi .big-text, #weather .big-text{
+  float: left;
+  margin-right: 0.5em;
+}
+
+.forecast{margin: 2em;}
+.forecast .columns .column{float: left;}

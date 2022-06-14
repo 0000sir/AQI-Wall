@@ -5,6 +5,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="user-scalable=no, width=1024" />
     <link rel="apple-touch-icon" sizes="128x128" href="/apple-touch-icon.png" />
+    <link href="bulma.min.css" rel="stylesheet" type="text/css"/>
     <link href="style.css" rel="stylesheet" type="text/css"/>
     <script src="/jquery-3.6.0.min.js"></script>
     <script src="/api.js"></script>
@@ -14,36 +15,55 @@
 
     <div id="date"></div>
 
-    <div id="weather">
-      <img src="" />
-      <div class="weather"></div>
-      <div class="wind"></div>
-      <div class="temperature big-text"></div>
-      <div class="humidity extra"></div>
+    <div class="columns">
+      <div id="weather" class="column">
+        <img src="" />
+        <div class="weather"></div>
+        <div class="wind"></div>
+        <div class="temperature big-text"></div>
+        <div class="humidity extra"></div>
+      </div>
+
+      <div id="aqi" class="column">
+        <div class="quality big-text"></div>
+        <div class="value"></div>
+        <div class="time extra"></div>
+        <div class="location extra"></div>
+        <div class="source extra"></div>
+      </div>
     </div>
 
-    <div id="aqi">
-      <div class="quality big-text"></div>
-      <div class="value"></div>
-      <div class="time extra"></div>
-      <div class="location extra"></div>
-      <div class="source extra"></div>
-    </div>
+    <div class="columns">
+      <div class="forecast column">
+        <div id="future" class="extra columns">
+        </div>
+      </div>
 
-	<div class="forecast">
-	  <ul id="future" class="extra">
-	  </ul>
+      <div id="shici" class="column">
+        <div id="shici_sentence"></div>
+        <div id="shici_author"></div>
+      
+        <div class="modal" id="full_content">
+            燕丹善养士，志在报强嬴。招集百夫良，岁暮得荆卿。君子死知己，提剑出燕京。素骥鸣广陌，慷慨送我行。雄发指危冠，猛气冲长缨。饮饯易水上，四座列群英。渐离击悲筑，宋意唱高声。萧萧哀风逝，淡淡寒波生。商音更流涕，羽奏壮士惊。心知去不归，且有后世名。登车何时顾，飞盖入秦庭。凌厉越万里，逶迤过千城。图穷事自至，豪主正怔营。惜哉剑术疏，奇功遂不成。其人虽已没，千载有馀情。
+        </div>
+      </div>
     </div>
+    
 
-<div id="shici">
-	<div id="shici_sentence"></div>
-	<div id="shici_author"></div>
-</div>
+	  
+
 <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
 
     <script>
 
     $(function(){
+      $("#shici_sentence").click(function(){
+        $("#full_content").show();
+      });
+      $("#full_content").click(function(){
+        $("#full_content").hide();
+      });
+
       function readdata(){
         read_aqi('daxing');
         read_weather('101011100');
@@ -55,6 +75,8 @@
       setInterval(clock, 1000);
       setInterval(readdata, 60000*15);
     });
+
+    
     </script>
   </body>
 </html>

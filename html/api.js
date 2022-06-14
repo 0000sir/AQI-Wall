@@ -46,10 +46,10 @@ function read_forcast(city){
     $('#future').text('');
     for(var day=0; day<forcast.length;day++){
       cast = forcast[day];
-      $('#future').append("<li><div class=\"date\">"+cast.fxDate+
+      $('#future').append("<div class=\"column\"><div class=\"date\">"+cast.fxDate+
         "</div><div class=\"temperature\">"+cast.tempMin+'~'+cast.tempMax+"℃"+
         "</div><div class=\"weather\">"+cast.textDay+'-'+cast.textNight+
-        "</div><div class=\"windp\">"+cast.windDirDay+cast.windScaleDay+"</div></li>");
+        "</div><div class=\"windp\">"+cast.windDirDay+cast.windScaleDay+"</div></div>");
     }
   })
 }
@@ -72,7 +72,7 @@ function show_aqi(aqi, updated_at, city){
   }else{
     $("#aqi .quality").text("有毒");
   }
-  set_bg(aqi_color(avg_aqi));
+  // set_bg(aqi_color(avg_aqi));
 
   $("#aqi .time").text(updated_at + " 更新");
   $("#aqi .location").text(city);
@@ -85,7 +85,11 @@ function load_shici(){
     var sentence = document.querySelector("#shici_sentence");
     sentence.innerHTML = result.data.content;
     var author = document.querySelector("#shici_author");
-    author.innerHTML = result.data.origin.dynasty + " · " + result.data.origin.author;
+    author.innerHTML = result.data.origin.dynasty + " · " + result.data.origin.author + "《"+ result.data.origin.title+"》";
+    var full = document.querySelector("#shici #full_content");
+    full.innerHTML = "<p class=\"center big-text\">《"+ result.data.origin.title+"》</p>" +
+      "<p class=\"center\">"+ result.data.origin.dynasty + " · " + result.data.origin.author + "</p>" +
+      "<p><br>"+result.data.origin.content.join("") + "</p>";
   });
 }
 
@@ -101,6 +105,8 @@ function fa (j) {
 
 function clock(){
   var x=new Date();
+  var utc8DiffMinutes = x.getTimezoneOffset() + 480
+  x.setMinutes(x.getMinutes() + utc8DiffMinutes)
   y=x.getFullYear();
   m=x.getMonth()+1;
   d=x.getDate();
@@ -111,7 +117,7 @@ function clock(){
   ar=['日','一','二','三','四','五','六'];
   w=ar[r];
   time=y+'-'+m+'-'+d+ '   周' + w + '   '+fa(h)+':'+fa(f);
-  $('#date').text(time);
+  document.getElementById("date").innerHTML= time;
 }
 
 function aqi_color(aqi){
