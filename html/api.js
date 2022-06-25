@@ -72,7 +72,7 @@ function show_aqi(aqi, updated_at, city){
   }else{
     $("#aqi .quality").text("有毒");
   }
-  // set_bg(aqi_color(avg_aqi));
+  set_bg(aqi_color(avg_aqi));
 
   $("#aqi .time").text(updated_at + " 更新");
   $("#aqi .location").text(city);
@@ -141,7 +141,7 @@ function aqi_color(aqi){
 }
 
 function set_bg(arr_r_g_b){
-  $("body").css("background-color","rgb("+arr_r_g_b.join(",")+")");
+  $("body.aqi_normal").css("background-color","rgb("+arr_r_g_b.join(",")+")");
 }
 
 function color_test(){

@@ -1,6 +1,6 @@
 html{margin: 0;padding:0}
 
-body{margin: 0;padding: 40px 40px 0 60px; color: #ffe;font-size:50px;}
+body{margin: 0;padding: 40px 40px 0 60px; color: #ffe;font-size:50px;height:100%;width:100%;}
 
 .aqi_good{background: #9c6;}
 
