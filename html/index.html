@@ -11,43 +11,43 @@
     <script src="/api.js"></script>
 
   </head>
-  <body class="aqi_normal">
+  <body>
+    <div id="wallpaper"></div>
 
-    <div id="date"></div>
-
-    <div class="columns">
+    <div class="columns row1 center">
       <div id="weather" class="column">
         <img src="" />
         <div class="weather"></div>
-        <div class="wind"></div>
+        <!--div class="wind"></div-->
         <div class="temperature big-text"></div>
-        <div class="humidity extra"></div>
+        <div class="humidity"></div>
       </div>
 
       <div id="aqi" class="column">
-        <div class="quality big-text"></div>
-        <div class="value"></div>
-        <div class="time extra"></div>
-        <div class="location extra"></div>
-        <div class="source extra"></div>
+        <div class="quality"></div>
+        <div class="value big-text"></div>
+        <div class="location"></div>
       </div>
     </div>
 
-    <div class="columns">
-      <div class="forecast column">
-        <div id="future" class="extra columns">
-        </div>
-      </div>
-
-      <div id="shici" class="column">
-        <div id="shici_sentence"></div>
-        <div id="shici_author"></div>
-      
-        <div class="modal" id="full_content">
-            燕丹善养士，志在报强嬴。招集百夫良，岁暮得荆卿。君子死知己，提剑出燕京。素骥鸣广陌，慷慨送我行。雄发指危冠，猛气冲长缨。饮饯易水上，四座列群英。渐离击悲筑，宋意唱高声。萧萧哀风逝，淡淡寒波生。商音更流涕，羽奏壮士惊。心知去不归，且有后世名。登车何时顾，飞盖入秦庭。凌厉越万里，逶迤过千城。图穷事自至，豪主正怔营。惜哉剑术疏，奇功遂不成。其人虽已没，千载有馀情。
-        </div>
+    <div class="forecast">
+      <div id="future" class="columns">
       </div>
     </div>
+
+
+
+    <div id="shici">
+      <div id="shici_sentence" class="center"></div>
+      <div id="shici_author"></div>
+    
+      <div class="modal" id="full_content">
+          燕丹善养士，志在报强嬴。招集百夫良，岁暮得荆卿。君子死知己，提剑出燕京。素骥鸣广陌，慷慨送我行。雄发指危冠，猛气冲长缨。饮饯易水上，四座列群英。渐离击悲筑，宋意唱高声。萧萧哀风逝，淡淡寒波生。商音更流涕，羽奏壮士惊。心知去不归，且有后世名。登车何时顾，飞盖入秦庭。凌厉越万里，逶迤过千城。图穷事自至，豪主正怔营。惜哉剑术疏，奇功遂不成。其人虽已没，千载有馀情。
+      </div>
+    </div>
+
+    <div id="time" class="center"></div>
+    <div id="date" class="center"></div>
     
 
 	  

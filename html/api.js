@@ -31,8 +31,8 @@ function read_weather(city){
   var weather;
   $.get('/weather/now?key=a2cefdbe177a4dfd961eb841b66d667c&location='+city, function(data){
     weather = data.now;
-    $('.weather').text(weather.text);
-    $('.wind').text( weather.windDir + weather.windScale+ '级' );
+    $('.weather').text(weather.text + " " + weather.windDir + weather.windScale+ '级' );
+    // $('.wind').text( );
     $('.temperature').text(weather.temp+'℃');
     $('.humidity').text("相对湿度"+weather.humidity+"%");
   });
@@ -57,7 +57,7 @@ function read_forcast(city){
 function show_aqi(aqi, updated_at, city){
   $("#aqi .value").text(aqi);
   if(aqi == '-'){
-    $('body').attr("class", "aqi_normal");
+    // $('body').attr("class", "aqi_normal");
     $("#aqi .quality").text("无数据");
   }else if(aqi<51){
     $("#aqi .quality").text("优");
@@ -72,11 +72,11 @@ function show_aqi(aqi, updated_at, city){
   }else{
     $("#aqi .quality").text("有毒");
   }
-  set_bg(aqi_color(avg_aqi));
+  // set_bg(aqi_color(avg_aqi));
 
-  $("#aqi .time").text(updated_at + " 更新");
+  // $("#aqi .time").text(updated_at + " 更新");
   $("#aqi .location").text(city);
-  $("#aqi .source").text(source);
+  // $("#aqi .source").text(source);
 }
 
 function load_shici(){
@@ -116,8 +116,10 @@ function clock(){
   s=x.getSeconds();
   ar=['日','一','二','三','四','五','六'];
   w=ar[r];
-  time=y+'-'+m+'-'+d+ '   周' + w + '   '+fa(h)+':'+fa(f);
-  document.getElementById("date").innerHTML= time;
+  time=fa(h)+':'+fa(f);
+  date=y+'-'+m+'-'+d+ '   周' + w
+  document.getElementById("time").innerHTML= time;
+  document.getElementById("date").innerHTML= date;
 }
 
 function aqi_color(aqi){
