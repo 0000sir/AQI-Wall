@@ -31,10 +31,10 @@ function read_weather(city){
   var weather;
   $.get('/weather/now?key=a2cefdbe177a4dfd961eb841b66d667c&location='+city, function(data){
     weather = data.now;
-    $('.weather').text(weather.text + " " + weather.windDir + weather.windScale+ '级' );
+    $('#weather .weather').text(weather.text + " " + weather.windDir + weather.windScale+ '级' );
     // $('.wind').text( );
-    $('.temperature').text(weather.temp+'℃');
-    $('.humidity').text("相对湿度"+weather.humidity+"%");
+    $('#weather .temperature').text(weather.temp+'℃');
+    $('#weather .humidity').text("相对湿度"+weather.humidity+"%");
   });
   return weather;
 }
@@ -150,4 +150,14 @@ function color_test(){
   for(i=1;i<600;i++){
     $("body").append("<div style='width:100px;height:5px;background-color:rgb("+aqi_color(i).join(",")+");'></div>");
   }
+}
+
+function load_bg(){
+  // set background image to "https://bing.biturl.top?resolution=768x1280&format=image"
+  // gethttps://bing.biturl.top/?resolution=UHD&format=json&index=0&mkt=zh-CN
+
+  $.get('https://bing.biturl.top/?resolution=768x1280&format=json&index=0&mkt=zh-CN', function(data){
+    console.log(data)
+    $("#wallpaper").css("background-image", "url("+data.url+")");
+  });
 }
